@@ -15,12 +15,12 @@
   <p id="result"></p>
   
   <script>
-     const API_URL = "https://dzus6zlqwd.execute-api.ap-south-1.amazonaws.com/prod/add"
+    const API_URL = "https://dzus6zlqwd.execute-api.ap-south-1.amazonaws.com/prod/add"
     async function callAPI() {
       const a = document.getElementById("a").value;
       const b = document.getElementById("b").value;
       try {
-        const res = await fetch("YOUR_API_GATEWAY_URL", {
+        const res = await fetch(`${API_URL}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ a: a, b: b })
