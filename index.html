@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Amplify HTML Demo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Hello from AWS Amplify + Lambda!</h1>
@@ -14,18 +15,17 @@
   <p id="result"></p>
   
   <script>
-    const API_URL = "https://dzus6zlqwd.execute-api.ap-south-1.amazonaws.com/prod/add"
+     const API_URL = "https://dzus6zlqwd.execute-api.ap-south-1.amazonaws.com/prod/add"
     async function callAPI() {
       const a = document.getElementById("a").value;
       const b = document.getElementById("b").value;
       try {
-        const res = await fetch(`${API_URL}`, {
+        const res = await fetch("YOUR_API_GATEWAY_URL", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ a: +a, b: +b })
+          body: JSON.stringify({ a: a, b: b })
         });
         const data = await res.json();
-        console.log(data)
         document.getElementById("result").innerText = "Sum = " + data.sum;
       } catch (err) {
         document.getElementById("result").innerText = "Error: " + err;
