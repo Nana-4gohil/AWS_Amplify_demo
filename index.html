@@ -22,7 +22,7 @@
         const res = await fetch(`${API_URL}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ a: a, b: b })
+          body: JSON.stringify({ a: +a, b: +b })
         });
         const data = await res.json();
         console.log(data)
